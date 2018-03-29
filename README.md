@@ -1,4 +1,4 @@
-##Innovative Software Solution(ISS)
+## Innovative Software Solutions - ISS
 
 Nuestras acciones están orientadas a brindar soluciones tecnológicas y mejora de proceso para colaborar al logro de sus objetivos, lo que nos permitirá apoyarlos en un crecimiento continuo y planificado.
 
