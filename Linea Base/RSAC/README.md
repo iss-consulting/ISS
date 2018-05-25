@@ -1,0 +1,1 @@
+Carpeta de lineas base para el proyecto "Red Social para Amantes de la Cocina"
