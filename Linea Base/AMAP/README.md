@@ -1,0 +1,1 @@
+Carpeta de lineas base para el proyecto "App Mobil para Asistencia de Personal"
