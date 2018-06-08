@@ -2,7 +2,8 @@
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from recipe.views import RecipeAPI, RecipeImageAPI, IngredientAPI
+from recipe.views import RecipeAPI, RecipeImageAPI, IngredientAPI\
+, SearchIngredientView
 
 app_name = 'recipe'
 
@@ -20,4 +21,7 @@ urlpatterns = [
     url(r'^ingredient-api/(?P<id>[0-9]+)/$',
         IngredientAPI.as_view({'get': 'retrieve', 'patch': 'partial_update',
                                'delete': 'destroy'})),
+
+    # WEB
+    url(r'^search_ingredient/', SearchIngredientView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
