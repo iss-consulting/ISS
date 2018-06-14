@@ -1,6 +1,6 @@
 package com.iss.flavr.data.repository.remote.request;
 
-import org.json.JSONObject;
+import com.google.gson.JsonArray;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,9 +11,8 @@ import retrofit2.http.GET;
 
 public interface RecipeRequest {
 
-
-        //getBettingSites
-        @GET("/recipe/recipe-api/")
-        Call<JSONObject> getBettingSites();
+    //getRecipes
+    @GET("/recipe/recipe-api/")
+    Call<JsonArray> getRecipes();
 
 }

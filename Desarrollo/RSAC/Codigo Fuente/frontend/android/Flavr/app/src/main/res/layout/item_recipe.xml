@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="8dp"
+    card_view:cardUseCompatPadding="true">
 
-    <android.support.v7.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp"
-        card_view:cardUseCompatPadding="true">
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/dish1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_below="@id/iv_photo"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dish1">
-
-                <ImageView
-                    android:id="@+id/iv_user"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/user" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginBottom="16dp"
-                >
-
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ceviche de Tiburón"
                 android:textSize="18sp" />
+
             <TextView
+                android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="De: Chagua"
                 android:textSize="12sp" />
+
             <TextView
+                android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Receta fácil de preparar"
-                android:textSize="12sp"
-                />
-            </LinearLayout>
+                android:textSize="12sp" />
+
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+        <ImageView
+            android:id="@+id/iv_user"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="120dp"
+            tools:src="@tools:sample/avatars" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
