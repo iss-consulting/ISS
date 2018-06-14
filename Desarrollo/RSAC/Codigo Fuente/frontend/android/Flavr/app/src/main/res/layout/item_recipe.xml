@@ -20,51 +20,52 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
-            tools:src="@drawable/dish1" />
+            tools:src="@drawable/dish" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_photo"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ceviche de Tiburón"
-                android:textSize="18sp" />
+                android:layout_marginRight="64dp"
+                android:textSize="18sp"
+                tools:text="Ceviche de Tiburón estilo boliviano" />
 
             <TextView
                 android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="De: Chagua"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:text="De: Chagua" />
 
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Receta fácil de preparar"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:text="Receta fácil de preparar" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/iv_user"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="120dp"
-            tools:src="@tools:sample/avatars" />
+            android:layout_marginTop="128dp"
+            tools:src="@drawable/user" />
 
     </RelativeLayout>
 

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.iss.flavr.data.model.Recipe;
 import com.iss.flavr.data.repository.remote.ServiceGenerator;
 import com.iss.flavr.data.repository.remote.request.RecipeRequest;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,17 +44,19 @@ public class RecipeListPresenter implements RecipeListContract.Presenter {
             getView().hideRecycler();
         }
         final RecipeRequest recipeRequest = ServiceGenerator.createService(RecipeRequest.class);
-        Call<JsonArray> call = recipeRequest.getRecipes();
-        call.enqueue(new Callback<JsonArray>() {
+        Call<List<Recipe>> call = recipeRequest.getRecipes();
+        call.enqueue(new Callback<List<Recipe>>() {
             @Override
-            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+                        Log.e(TAG, "1");
                         if (isAttached()) {
-                            //getView().setInfo(?);
+                            getView().setInfo(response.body());
                             getView().showRecycler();
                             getView().stopRefresh();
                         }
+                    } else {
                         if (isAttached()) {
                             getView().stopRefresh();
                             getView().showWSError();
@@ -63,7 +66,7 @@ public class RecipeListPresenter implements RecipeListContract.Presenter {
             }
 
             @Override
-            public void onFailure(Call<JsonArray> call, Throwable t) {
+            public void onFailure(Call<List<Recipe>> call, Throwable t) {
                 if (isAttached()) {
                     getView().stopRefresh();
                     getView().showWSError();

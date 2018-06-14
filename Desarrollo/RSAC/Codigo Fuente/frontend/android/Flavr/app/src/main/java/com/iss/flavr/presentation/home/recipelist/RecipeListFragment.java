@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.iss.flavr.R;
 import com.iss.flavr.data.model.Recipe;
-import com.iss.flavr.presentation.home.HomeActivity;
 import com.iss.flavr.presentation.home.recipelist.adapter.RecipeAdapter;
 
 import java.util.List;
@@ -24,12 +23,8 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class RecipeListFragment extends Fragment implements RecipeListContract.View {
-
-    @BindView(R.id.rv_recipes)
     RecyclerView rvRecipes;
-    @BindView(R.id.sw_recipes)
     SwipeRefreshLayout swRecipes;
-    Unbinder unbinder;
 
     private RecipeListContract.Presenter presenter;
     private Context context;
@@ -39,14 +34,15 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreate()");
-        //((HomeActivity) getActivity()).getSupportActionBar().setTitle(R.string.nav_recipes);
 
         View rootView = inflater.inflate(R.layout.fragment_recipe_list, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
         context = getActivity();
 
+        swRecipes = rootView.findViewById(R.id.sw_recipes);
+        rvRecipes = rootView.findViewById(R.id.rv_recipes);
         rvRecipes.setLayoutManager(new LinearLayoutManager(context));
         rvRecipes.setAdapter(new RecipeAdapter(context));
+
         presenter = new RecipeListPresenter(context);
         presenter.getRecipeList();
 
@@ -72,7 +68,7 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
 
     @Override
     public void hideRecycler() {
-        rvRecipes.setVisibility(View.GONE);
+        swRecipes.setVisibility(View.GONE);
     }
 
     @Override
@@ -87,7 +83,7 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
 
     @Override
     public void showRecycler() {
-        rvRecipes.setVisibility(View.VISIBLE);
+        swRecipes.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -107,6 +103,5 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 }
