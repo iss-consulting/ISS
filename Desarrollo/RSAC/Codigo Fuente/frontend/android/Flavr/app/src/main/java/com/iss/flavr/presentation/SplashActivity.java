@@ -1,10 +1,13 @@
-package com.iss.flavr;
+package com.iss.flavr.presentation;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import com.iss.flavr.R;
+import com.iss.flavr.presentation.login.LoginActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;

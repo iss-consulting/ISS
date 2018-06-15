@@ -1,8 +1,10 @@
-package com.iss.flavr;
+package com.iss.flavr.presentation.login;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import com.iss.flavr.R;
 
 public class LoginActivity extends AppCompatActivity {
 
