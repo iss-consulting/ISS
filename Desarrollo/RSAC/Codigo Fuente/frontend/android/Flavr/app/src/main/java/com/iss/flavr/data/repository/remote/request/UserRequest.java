@@ -11,7 +11,7 @@ import retrofit2.http.POST;
  * Created by Luciano on 08/06/2018.
  */
 
-public class UserRequest {
+public interface UserRequest {
 
     //Login
     @FormUrlEncoded
