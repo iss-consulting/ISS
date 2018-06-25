@@ -23,7 +23,8 @@
         <activity
             android:name=".presentation.login.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".presentation.home.HomeActivity"></activity>
+        <activity android:name=".presentation.home.HomeActivity" />
+        <activity android:name=".presentation.home.recipe_detail.RecipeListActivity"></activity>
     </application>
 
 </manifest>
