@@ -2,7 +2,7 @@
     <string name="app_name">Flavr</string>
 
     <string name="general_ws_error">Error en el servicio</string>
-    <string name="default_loading_text">Cargando...</string>
+    <string name="default_loading_text">Cargando&#8230;</string>
 
     <!--Login-->
     <string name="login_email_hint">Usuario o correo</string>
