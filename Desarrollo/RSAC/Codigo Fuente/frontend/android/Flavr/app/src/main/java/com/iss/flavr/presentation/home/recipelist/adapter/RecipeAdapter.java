@@ -53,20 +53,20 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(RecipeAdapter.ViewHolder holder, final int position) {
-        Picasso.with(context).load(recipeList.get(position).getRecipeImage())
+        Picasso.with(context).load("http://"+recipeList.get(position).getRecipeImage())
                 .placeholder(R.drawable.dish)
                 .centerCrop().fit().into(holder.photo);
         holder.title.setText(recipeList.get(position).getTitle());
         holder.username.setText("De: " + recipeList.get(position).getAuthor().getUser().getUsername());
         holder.description.setText(recipeList.get(position).getDescription());
-        Picasso.with(context).load(recipeList.get(position).getAuthor().getPersonImage())
+        Picasso.with(context).load("http://"+recipeList.get(position).getAuthor().getPersonImage())
                 .placeholder(R.drawable.user)
                 .transform(new CircleTransform())
                 .centerCrop().fit().into(holder.userPhoto);
         holder.photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, recipeList.get(position).getListIngredients().get(0).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, recipeList.get(position).getListIngredients().get(0), Toast.LENGTH_SHORT).show();
             }
         });
     }
