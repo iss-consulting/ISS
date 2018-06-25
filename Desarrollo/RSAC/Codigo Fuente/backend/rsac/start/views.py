@@ -1,4 +1,7 @@
 """ Views for start app """
+from django.views import View
+from django.shortcuts import render
+
 from start.utils import create_user
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -95,21 +98,28 @@ class RegisterUserAPI(APIView):
 
     def post(self, request):
         """ POST method to handle the registration """
+        if (not self.request.data['username'] or\
+        not self.request.data['email']) and\
+        not self.request.data['password']:
+            return Response({'status': False})
         dictionary_post = {}
         dictionary_post['first_name'] = self.request.data['first_name']
         dictionary_post['last_name'] = self.request.data['last_name']
         dictionary_post['email'] = self.request.data['email']
         dictionary_post['username'] = self.request.data['username']
         dictionary_post['password'] = self.request.data['password']
-        dictionary_post['genre'] = self.request.data['genre']
-        dictionary_post['born_date'] = self.request.data['born_date']
+        if 'genre' in self.request.data:
+            dictionary_post['genre'] = self.request.data['genre']
+        if 'born_date' in self.request.data:
+            dictionary_post['born_date'] = self.request.data['born_date']
         new_user = create_user(dictionary_post)
         if new_user:
             new_user_auth = authenticate(username=dictionary_post['username'],
                                          password=dictionary_post['password'])
             if new_user_auth:
                 login(request, new_user_auth)
-                return Response({'status': True})
+                person_id = Person.objects.get(user=user).id                
+                return Response({'status': True, 'person_id': person_id})
             else:
                 return Response({'status': False})
         return Response({'status': False})
@@ -123,3 +133,15 @@ class PersonImageAPI(ModelViewSet):
     serializer_class = PersonImageSerializer
     queryset = PersonImage.objects.all()
     lookup_field = 'person__id'
+
+
+class LoginView(View):
+    """ Login for all persons """
+    def get(self, request):
+        return render(request, 'start/Login.html')
+
+
+class IndexView(View):
+    """ Index page """
+    def get(self, request):
+        return render(request, 'start/Index.html')

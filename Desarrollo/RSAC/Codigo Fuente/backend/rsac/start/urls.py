@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 from start.views import RegisterUserAPI, AuthenticateUserAPI, PersonAPI, \
-    PersonImageAPI
+    PersonImageAPI, LoginView, IndexView
 
 app_name = 'start'
 
@@ -17,4 +17,8 @@ urlpatterns = [
         PersonImageAPI.as_view({'post': 'create'})),
     url(r'^person-image-api/(?P<person__id>[0-9]+)/$',
         PersonImageAPI.as_view({'get': 'retrieve', 'patch': 'partial_update'})),
+
+    # WEB
+    url(r'^$', LoginView.as_view()),
+    url(r'^index/$', IndexView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
