@@ -1,6 +1,7 @@
 package com.iss.flavr.presentation.home.recipelist.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.iss.flavr.R;
 import com.iss.flavr.data.model.Recipe;
+import com.iss.flavr.presentation.home.recipe_detail.RecipeDetailActivity;
 import com.iss.flavr.util.CircleTransform;
 import com.squareup.picasso.Picasso;
 
@@ -66,7 +68,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, recipeList.get(position).getListIngredients().get(0), Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(context,RecipeDetailActivity.class);
+                i.putExtra("recipe", recipeList.get(position));
+                context.startActivity(i);
             }
         });
     }

@@ -72,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setUpToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setElevation(10.0f);
+        getSupportActionBar().setTitle(R.string.nav_recipes);
     }
 
     //clean fragment back stack!
@@ -107,9 +108,9 @@ public class HomeActivity extends AppCompatActivity {
                 .withHeaderBackground(R.drawable.drawer_background)
                 .withSelectionListEnabledForSingleProfile(false)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Lionel Messi")
-                                .withEmail("yarex@gmail.com")
-                                .withIcon(R.drawable.ronaldo)
+                        new ProfileDrawerItem().withName(sessionManager.getKeyPUsername())
+                                .withEmail(sessionManager.getKeyPEmail())
+                                .withIcon("http://"+sessionManager.getKeyPhoto())
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
