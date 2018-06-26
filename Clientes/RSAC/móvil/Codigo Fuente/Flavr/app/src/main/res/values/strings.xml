@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Flavr</string>
+
+    <string name="general_ws_error">Error en el servicio</string>
+    <string name="default_loading_text">Cargando&#8230;</string>
+
+    <string name="nav_recipes">Listado de recetas</string>
+    <string name="nav_add_recipe">Agregar receta</string>
+    <string name="nav_logout">Cerrar Sesión</string>
+
+    <!--Login-->
+    <string name="login_email_hint">Usuario</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_button_login_text">Ingresar</string>
+    <string name="login_options_text">o ingresa con</string>
+    <string name="password_recovery_text">¿Olvidaste tu contraseña?</string>
+    <string name="sign_up_question_text">¿No tienes cuenta?</string>
+    <string name="sign_up_text">Regístrate</string>
+    <string name="sign_in_question_text">¿No tienes cuenta?</string>
+    <string name="sign_in_text">Regístrate</string>
+    <string name="login_success">Acceso exitoso</string>
+    <string name="email_password_ws_error">Usuario y/o Contraseña incorrecto</string>
+    <string name="invalid_email">Usuario incorrecto</string>
+    <string name="email_confirmation_error">Error. Usuario con correo no confirmado</string>
+    <string name="invalid_pass">Contraseña incorrecta</string>
+    <string name="cant_pass">No puede ingresar</string>
+    <string name="error_connect">Error de conexión</string>
+    <string name="social_media_ws_error">Error con el servicio. Inténtelo de nuevo</string>
+
+
+</resources>
