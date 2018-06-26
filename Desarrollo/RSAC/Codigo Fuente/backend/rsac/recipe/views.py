@@ -7,8 +7,7 @@ from rest_framework.viewsets import ModelViewSet
 from recipe.models import Recipe, RecipeImage, Ingredient
 from recipe.serializers import RecipeSerializer, RecipeImageSerializer, \
     IngredientSerializer
-from django.shortcuts import render
-from django.views import View
+
 
 class CsrfExemptSessionAuthentication(SessionAuthentication):
     """ Class View used to exempt csrf for a request"""
@@ -64,9 +63,3 @@ class IngredientAPI(ModelViewSet):
         else:
             queryset = Ingredient.objects.all().order_by('name')
         return queryset
-
-
-class SearchIngredientView(View):
-    """ Search and filter ingredients for dispend """
-    def get(self, request):
-        return render(request, 'recipe/SearchIngredients.html')

@@ -71,11 +71,17 @@ class RecipeSerializer(ModelSerializer):
     def get_list_ingredients(self, obj):
         """ Method to obtain the list of ingredients asociated to a recipe """
         ingredient_ids = (RecipeIngredient.objects.filter(recipe=obj)
-                           .values('ingredient__id'))
+                          .values('ingredient__id'))
         ingredients = Ingredient.objects.filter(id__in=ingredient_ids)
+        """
         return IngredientSerializer(ingredients, many=True,
                                     context={'request': self
                                     .context['request']}).data
+        """
+        list_ingredients = []
+        for ingredient in ingredients:
+            list_ingredients.append(ingredient.name)
+        return list_ingredients
 
 
 class RecipeImageSerializer(ModelSerializer):
