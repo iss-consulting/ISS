@@ -27,9 +27,9 @@ public class Recipe {
     private String recipeImage;
     @SerializedName("list_ingredients")
     @Expose
-    private List<ListIngredient> listIngredients = null;
+    private List<String> listIngredients = null;
 
-    public Recipe(Integer id, Author author, String title, String description, String creationDate, String recipeImage, List<ListIngredient> listIngredients) {
+    public Recipe(Integer id, Author author, String title, String description, String creationDate, String recipeImage, List<String> listIngredients) {
         super();
         this.id = id;
         this.author = author;
@@ -118,15 +118,15 @@ public class Recipe {
         return this;
     }
 
-    public List<ListIngredient> getListIngredients() {
+    public List<String> getListIngredients() {
         return listIngredients;
     }
 
-    public void setListIngredients(List<ListIngredient> listIngredients) {
+    public void setListIngredients(List<String> listIngredients) {
         this.listIngredients = listIngredients;
     }
 
-    public Recipe withListIngredients(List<ListIngredient> listIngredients) {
+    public Recipe withListIngredients(List<String> listIngredients) {
         this.listIngredients = listIngredients;
         return this;
     }

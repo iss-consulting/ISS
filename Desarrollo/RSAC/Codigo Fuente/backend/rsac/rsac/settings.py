@@ -26,8 +26,8 @@ SECRET_KEY = ')6#+opi_(3wkn!+0$olbnrzm!t&_l-*+cveobxrq_7x3vx4@+@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SERVER_HOST = '52.14.23.174:8000'
-IMAGE_HOST = '52.14.23.174:8000'
+SERVER_HOST = '52.14.23.174'
+IMAGE_HOST = '52.14.23.174'
 
 ALLOWED_HOSTS = ['*']
 
