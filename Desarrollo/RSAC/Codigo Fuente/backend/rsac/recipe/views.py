@@ -70,3 +70,15 @@ class SearchIngredientView(View):
     """ Search and filter ingredients for dispend """
     def get(self, request):
         return render(request, 'recipe/SearchIngredients.html')
+
+
+class AgregateProductView(View):
+    """ Agregate product """
+    def get(self, request):
+        return render(request, 'recipe/AgregateProduct.html')
+
+
+class ListProductsView(View):
+    """ Agregate product """
+    def get(self, request):
+        return render(request, 'recipe/ListProducts.html')

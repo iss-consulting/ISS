@@ -1,0 +1,104 @@
+{% extends 'start/Index.html' %}
+
+{% block title %}
+Listar - Yith
+{% endblock %}
+
+{% load static %}
+{% block content %}
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-package"></i>
+                        Products
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    <li>
+                        <a class="nav-link active" href="{% url 'recipe:list' %}"><i class="icon icon-list"></i>Listar Productos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'recipe:agregate' %}"><i
+                                class="icon icon-plus-circle"></i> Agregar nuevo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card no-b shadow">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table id="products" class="table table-hover ">
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <nav class="pt-3" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>-->
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+    var data = {
+        provider_id: parseInt(localStorage.person_id)
+    }
+    $.ajax({
+        url: '/recipe/ingredient-api/',
+        headers: headers,
+        type: 'GET',
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: function(products){
+            $.each(products, function(i, pro){
+                var row = `
+                <tr class="no-b">
+                    <td class="w-10">
+                        <img src="{% static 'producto.jpg' %}" style="height:10%">
+                    </td>
+                    <td>
+                        <h6>`+pro.name+`</h6>
+                        <small class="text-muted">`+pro.description+`</small>
+                    </td>
+                    <td>$?</td>
+                    <td><span class="badge badge-success">Published</span></td>
+                    <td>
+                        <a class="btn-fab btn-fab-sm btn-primary shadow text-white"><i class="icon-pencil"></i></a>
+                    </td>
+                </tr>
+                `
+                $('#products tbody').append(row);
+            });
+        }
+    });
+
+</script>
+{% endblock %}

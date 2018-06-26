@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 from recipe.views import RecipeAPI, RecipeImageAPI, IngredientAPI\
-, SearchIngredientView
+, SearchIngredientView, AgregateProductView, ListProductsView
 
 app_name = 'recipe'
 
@@ -24,4 +24,6 @@ urlpatterns = [
 
     # WEB
     url(r'^search_ingredient/', SearchIngredientView.as_view()),
+    url(r'^agregate/', AgregateProductView.as_view(), name='agregate'),
+    url(r'^list/', ListProductsView.as_view(), name='list'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
