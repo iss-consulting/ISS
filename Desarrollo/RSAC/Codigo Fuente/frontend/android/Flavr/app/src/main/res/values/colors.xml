@@ -5,6 +5,8 @@
     <color name="colorAccent">#FFA600</color>
     <color name="colorAccentDark">#FF8F00</color>
 
+    <color name="material_drawer_selected_text">#E79F13</color>
+
     <color name="red_50">#FFEBEE</color>
     <color name="red_100">#FFCDD2</color>
     <color name="red_200">#EF9A9A</color>

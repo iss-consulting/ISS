@@ -15,8 +15,8 @@ public interface UserRequest {
 
     //Login
     @FormUrlEncoded
-    @POST("api/v2/person/login")
-    Call<JsonObject> login(@Field("personEmail") String email,
-                           @Field("personPassword") String password);
+    @POST("login-api/")
+    Call<JsonObject> login(@Field("username") String email,
+                           @Field("password") String password);
 
 }
