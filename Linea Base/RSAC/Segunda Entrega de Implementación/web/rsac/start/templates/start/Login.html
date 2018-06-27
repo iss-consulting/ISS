@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon"> -->
+    <title>Paper</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body class="light">
+<!-- Pre loader -->
+<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+<main>
+    <div id="primary" class="blue4 p-t-b-100 height-full responsive-phone">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{% static 'yith.png' %}" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-white">
+                        <h1>Bienvenido a RSAC</h1>
+                        <p class="s-18 p-t-b-20 font-weight-lighter">
+                            Red de Amantes de la cocina <3
+                        </p>
+                    </div>
+                    <div id="login_div">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group has-icon"><i class="icon-envelope-o"></i>
+                                    <input id="identifier" type="text" class="form-control form-control-lg no-b"
+                                           placeholder="Email / Username">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group has-icon"><i class="icon-user-secret"></i>
+                                    <input id="password_login" type="password" class="form-control form-control-lg no-b"
+                                           placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <input id="login" class="btn btn-success btn-lg btn-block" value="Ingresar">
+                                <p class="forget-pass text-white">Olvidaste tu contraseña?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="register_div">
+                        <div class="text-white">
+                            <h2>Regístrate, es rápido y sencillo</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group has-icon"><i class="icon-envelope-o"></i>
+                                    <input id="email" type="text" class="form-control form-control-lg no-b"
+                                           placeholder="Emai">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group has-icon"><i class="icon-mail-envelope2"></i>
+                                    <input id="username" type="text" class="form-control form-control-lg no-b"
+                                           placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group has-icon"><i class="icon-user"></i>
+                                    <input id="names" type="text" class="form-control form-control-lg no-b"
+                                           placeholder="Nombres">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group has-icon"><i class="icon-user"></i>
+                                    <input id="lasts" type="text" class="form-control form-control-lg no-b"
+                                           placeholder="Apellidos">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group has-icon"><i class="icon-user-secret"></i>
+                                    <input id="password" type="password" class="form-control form-control-lg no-b"
+                                           placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <input id="register" class="btn btn-success btn-lg btn-block" value="Registrarse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #primary -->
+</main>
+<!-- Right Sidebar -->
+<!-- /.right-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+<div class="control-sidebar-bg shadow white fixed"></div>
+</div>
+<!--/#app -->
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+<script>
+    $('#login').click(function(){
+        var data = {
+            username: $('#identifier').val(),
+            password: $('#password_login').val(),
+            //born_date: '',
+            //genre: 'M'
+        }
+        var headers = {
+            'Content-Type':'application/json'
+        }
+        $.ajax({
+            url: '/login-api/',
+            headers: headers,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data){
+                if(data.status){
+                    localStorage.person_id = data.person_id
+                    window.location.href = "/index/"
+                }
+            }
+        });
+    });
+    $('#register').click(function(){
+        var data = {
+            first_name: $('#names').val(),
+            last_name: $('#lasts').val(),
+            email: $('#email').val(),
+            username: $('#username').val(),
+            password: $('#password').val(),
+            //born_date: '',
+            //genre: 'M'
+        }
+        var headers = {
+            'Content-Type':'application/json'
+        }
+        $.ajax({
+            url: '/register-api/',
+            headers: headers,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data){
+                if(data.status){
+                    localStorage.person_id = data.person_id
+                    window.location.href = "/index/"
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

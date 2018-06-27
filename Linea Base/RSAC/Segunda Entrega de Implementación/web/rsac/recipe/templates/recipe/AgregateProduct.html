@@ -1,0 +1,91 @@
+{% extends 'start/Index.html' %}
+
+{% block title %}
+Agregar - Yith
+{% endblock %}
+
+{% block content %}
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-package"></i>
+                        Products
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    <li>
+                        <a class="nav-link" href="{% url 'recipe:list' %}"><i class="icon icon-list"></i>Listar Productos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="{% url 'recipe:agregate' %}"><i
+                                class="icon icon-plus-circle"></i> Agregar nuevo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort">
+            <form id="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-3">
+                            
+                        </div>
+                    <div class="col-md-6 ">
+                        <div class="row">
+                            <div class="col-md-12 mb-6">
+                                <label for="validationCustom01">Nombre</label>
+                                <input type="text" class="form-control" id="name_product"
+                                        required>
+                            </div>
+                            <div class="col-md-12 mb-6">
+                                <label for="validationCustom02">Descripcion</label>
+                                <textarea type="text" class="form-control" id="description"
+                                        required></textarea>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <button id="save" class="btn btn-primary btn-lg btn-block">Guardar</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $('#save').click(function(event){
+        var data = {
+            owner: parseInt(localStorage.person_id),
+            name: $('#name_product').val(),
+            description: $('#description').val()
+        }
+        var headers = {
+            'Content-Type':'application/json'
+        }
+        $.ajax({
+            url: '/recipe/ingredient-api/',
+            headers: headers,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data){
+                if(data){
+                    window.location.href = "{% url 'recipe:agregate' %}"
+                }
+            }
+        });
+        event.stopPropagation();
+    });
+</script>
+{% endblock %}
