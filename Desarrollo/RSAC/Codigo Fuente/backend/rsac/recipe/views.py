@@ -1,4 +1,7 @@
 """ Views for the recipe app """
+from django.views import View
+from django.shortcuts import render
+
 from rest_framework.authentication import SessionAuthentication, \
     BasicAuthentication
 from rest_framework.permissions import AllowAny
@@ -7,8 +10,7 @@ from rest_framework.viewsets import ModelViewSet
 from recipe.models import Recipe, RecipeImage, Ingredient
 from recipe.serializers import RecipeSerializer, RecipeImageSerializer, \
     IngredientSerializer
-from django.shortcuts import render
-from django.views import View
+
 
 class CsrfExemptSessionAuthentication(SessionAuthentication):
     """ Class View used to exempt csrf for a request"""
