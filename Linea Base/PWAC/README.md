@@ -1,1 +1,1 @@
-Carpeta de lineas base para el proyecto "Portal Web de Atencion al Cliente"
+Librería de lineas base para el proyecto "Portal Web de Atencion al Cliente"
